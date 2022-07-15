@@ -24,6 +24,7 @@ passport.use('registro', new LocalStrategy({
 */
     const { nombre } = req.body;
     const usuarioNuevo = {"email": email,"nombre": nombre,"password": password}
+    // aca tenfo la misma duda que con el constructor, como uso la API para llamar al method dentro del constructor? seria algo como "api.encriptarPassword(password)" ??
     await api.saveNew(usuarioNuevo)
     // voy a agregar un paso que parece raro pero es para que el usuario que guarde la session tenga el ID de mongo tambien
     const usuarioMongo = await api.getByMail(usuarioNuevo.email)
